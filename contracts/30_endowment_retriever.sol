@@ -3,7 +3,7 @@ contract EndowmentRetriever {
     address creator;
     uint contract_creation_value; // original endowment
 
-    function EndowmentRetriever() public 
+    function EndowmentRetriever() public payable
     {
         creator = msg.sender; 								
         contract_creation_value = msg.value;  				// the endowment of this contract in wei 
@@ -16,7 +16,7 @@ contract EndowmentRetriever {
     
     function sendOneEtherHome() public         	
     {						
-    	creator.send(1000000000000000000);				// send 1 ETH home
+    	creator.transfer(1000000000000000000);				// send 1 ETH home
     }
         
     /**********
